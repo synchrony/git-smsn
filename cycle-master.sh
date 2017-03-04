@@ -14,3 +14,5 @@ then
     && bash push-master.sh\
     && mv ../it ../it.$(date +"%Y_%m_%d_%I_%M_%p")
 fi
+
+echo "Done. Now you can clear your graph and import from this directory."
