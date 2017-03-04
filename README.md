@@ -11,13 +11,13 @@ In the SmSn VCS model, you define four separate Git repositories, one for each s
 * In SmSn, export to VCS (in Emacs brain-mode, use `M-x brain-export-vcs-prompt`).
 * Shut down Gremlin Server. (Or leave it running, but recognize that until you have imported the graph (below) your edits will not be preserved.)
 * In a shell, go to the VCS folder, and run `bash status.sh` to see what files have been changed, added, deleted. For each note in SmSn, there exists a corresponding file in the VCS folder.
-* If that looks good, I run `bash cycle-master-or-collab.sh`. That performs each of the following, unless a step fails, in which case the ones after it are not performed either.
+* If that looks good, run `bash cycle-master-or-collab.sh`. That performs each of the following, unless a step fails, in which case the ones after it are not performed either.
     * Commits the latest changes.
     * Pulls from the four repositories, adding everyone else's recent changes.
     * If there are no conflicts, it pushes to the four repositories. Otherwise the user will have to manually correct them.
-    * Renames the neo4j folder from "it" to "it" with today's date and time appended. This prevents me from continuing to use that neo4j data, which is good because it became obsolete when I pulled everyone else's changes.
-* Restart Gremlin Server. (You can leave Emacs running.)
-* In Emacs brain-mode, import from VCS (in Emacs brain-mode, use `M-x brain-import-vcs-prompt`).
+    * Renames the neo4j folder from "it" to "it" with today's date and time appended. This prevents Gremlin Server from finding it, which prevents the user from continuing to use that neo4j data -- which is good because it became obsolete upon pulling changes from the graph's other users.
+* Restart Gremlin Server. (Emacs can continue running.)
+* In Semantic Synchrony, import from VCS (in Emacs brain-mode, use `M-x brain-import-vcs-prompt`).
 
 ### Things to tweak
 * cycle-master-or-collab.sh uses two scripts that need changing: pull-master-or-collab.sh and push-master-or-collab.sh. By historical accident, I use the branch name "master" for my two private repositories, and "master" for the two public ones. You'll probably want it to use "master" for all four of them, at least initially.
