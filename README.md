@@ -6,8 +6,10 @@ These are intended only as a model -- they are tailored to my system, and will n
 
 In the SmSn VCS model, you define four separate Git repositories, one for each sharability level: private, personal, public and universal. For instance, you might keep the private and personal repositories on your local machine, and the public and universal ones on Git. 
 
-### My usual git-smsn data cycle is as follows:
-* In Emacs brain-mode, export to VCS (M-x brain-export-vcs-prompt).
+## How to use it: The data refresh cycle
+* In SmSn, work with the graph until you want to preserve your changes. Depending on your tastes that might mean daily, or randomly, ...
+* In SmSn, export to VCS (in Emacs brain-mode, use `M-x brain-export-vcs-prompt`).
+* Shut down Gremlin Server. (Or leave it running, but recognize that until you have imported the graph (below) your edits will not be preserved.)
 * In a shell, go to the VCS folder, and run `bash status.sh` to see what files have been changed, added, deleted. For each note in SmSn, there exists a corresponding file in the VCS folder.
 * If that looks good, I run `bash cycle-master-or-collab.sh`. That performs each of the following, unless a step fails, in which case the ones after it are not performed either.
     * Commits the latest changes.
@@ -15,7 +17,7 @@ In the SmSn VCS model, you define four separate Git repositories, one for each s
     * If there are no conflicts, it pushes to the four repositories. Otherwise the user will have to manually correct them.
     * Renames the neo4j folder from "it" to "it" with today's date and time appended. This prevents me from continuing to use that neo4j data, which is good because it became obsolete when I pulled everyone else's changes.
 * Restart Gremlin Server. (You can leave Emacs running.)
-* In Emacs brain-mode, import from VCS (M-x brain-import-vcs-prompt).
+* In Emacs brain-mode, import from VCS (in Emacs brain-mode, use `M-x brain-import-vcs-prompt`).
 
 ### Things to tweak
 * cycle-master-or-collab.sh uses two scripts that need changing: pull-master-or-collab.sh and push-master-or-collab.sh. By historical accident, I use the branch name "master" for my two private repositories, and "master" for the two public ones. You'll probably want it to use "master" for all four of them, at least initially.
