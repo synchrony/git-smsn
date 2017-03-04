@@ -3,7 +3,7 @@
 if [ $# -eq 0 ]
   then
     echo "using default commit message"
-    MSG="Jeff's Recent changes"
+    MSG="$(whoami)'s recent changes"
 else
     MSG=$1
 fi

@@ -2,7 +2,7 @@
 
 for dir in private personal public universal; do
   cd ${dir}
-  echo "showing "${dir}
-  git branch -a
+  echo "pulling from origin/master in "${dir}
+  git pull origin master
   cd -
 done
