@@ -12,5 +12,5 @@ for DIR in private personal public universal; do
 done
 sort $DELS > $DELS.sorted
 sort $ADDS > $ADDS.sorted
-comm $DELS.sorted $ADDS.sorted
-echo "If you see any node addresses in the first column above, then something disappeared."
+comm -23 $DELS.sorted $ADDS.sorted
+echo "If you see any node addresses above, then something disappeared."
