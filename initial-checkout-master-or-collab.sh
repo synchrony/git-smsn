@@ -13,7 +13,7 @@ mv universal $BK
 echo "checking out repositories"
 git clone file:///home/jeff/work/git_jbb/smsn-private.git private -b collab
 git clone file:///home/jeff/work/git_jbb/smsn-personal.git personal -b collab
-git clone https://github.com/joshsh/smsn-public.git public -b master
-git clone https://github.com/joshsh/smsn-universal.git universal -b master
+git clone https://github.com/synchrony/data-public.git public -b master
+git clone https://github.com/synchrony/data-universal.git universal -b master
 
 echo "done"
