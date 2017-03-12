@@ -13,6 +13,7 @@ then
     && printf "\n\nBeginning push*.sh.\n"\
     && bash push-master.sh\
     && mv ../it ../it.$(date +"%Y_%m_%d_%I_%M_%p")
+
+    echo "Done. Now you can clear your graph and import from this directory."
 fi
 
-echo "Done. Now you can clear your graph and import from this directory."
