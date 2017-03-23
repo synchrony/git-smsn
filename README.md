@@ -9,9 +9,9 @@ In the SmSn VCS model, you define four separate Git repositories, one for each s
 ## How to use it: The data refresh cycle
 * In SmSn, work with the graph until you want to preserve your changes. Depending on your tastes that might mean daily, or randomly, ...
 * In SmSn, export to VCS (in Emacs brain-mode, use `M-x brain-export-vcs-prompt`).
-* Shut down Gremlin Server. (Or leave it running, but recognize that until you have imported the graph (below) your edits will not be preserved.)
-* In a shell, go to the VCS folder, and run `bash status.sh` to see what files have been changed, added, deleted. For each note in SmSn, there exists a corresponding file in the VCS folder.
-* If that looks good, run `bash cycle-master-or-collab.sh`. That performs each of the following, unless a step fails, in which case the ones after it are not performed either.
+* Shut down Gremlin Server. (Or leave it running, but don't edit the graph again until you have re-imported it (below). Edits made between now and then will be lost.)
+* Get some reports: In a shell, go to the VCS folder, and run "lost-nodes.sh" to see whether any nodes have disappeared. (For each note in SmSn, there exists a corresponding file in the VCS folder.) For more detail, run `bash status.sh` to see what files have been changed, added, deleted.
+* If those reports look good, run `bash cycle-master.sh`. That performs each of the following, unless a step fails, in which case the ones after it are not performed either.
     * Commits the latest changes.
     * Pulls from the four repositories, adding everyone else's recent changes.
     * If there are no conflicts, it pushes to the four repositories. Otherwise the user will have to manually correct them.
@@ -20,5 +20,5 @@ In the SmSn VCS model, you define four separate Git repositories, one for each s
 * In Semantic Synchrony, import from VCS (in Emacs brain-mode, use `M-x brain-import-vcs-prompt`).
 
 ### Things to tweak
-* cycle-master-or-collab.sh uses two scripts that need changing: pull-master-or-collab.sh and push-master-or-collab.sh. By historical accident, I use the branch name "master" for my two private repositories, and "master" for the two public ones. You'll probably want it to use "master" for all four of them, at least initially.
-* In the last step of cycle-master-or-collab.sh, where it renames the old neo4j folder, you'll have to make sure it renames the right thing. My neo4j folder is called "it" and resides one folder up from these scripts, so in the two places where I've written "../it" you'll need to put what is appropriate to your system.
+* The above assumes the working branch for each of the four repositories is called "master". See if-the-4-branch-names-vary/ for what to do if they don't all have the same name.
+* In the last step of cycle-master.sh, where it renames the old neo4j folder, you'll have to make sure it renames the right thing. My neo4j folder is called "it" and resides one folder up from these scripts, hence "../it". Where you see "../it" you'll need to substitute a path appropriate to your system.
