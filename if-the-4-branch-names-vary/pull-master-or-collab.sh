@@ -7,7 +7,7 @@ for dir in private personal; do
   cd -
 done
 
-for dir in public universal; do
+for dir in public observatorio universal; do
   cd ${dir}
   echo "pulling from origin/master in "${dir}
   git pull origin master

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-for dir in public universal; do
+for dir in public observatorio universal; do
   cd ${dir}
   echo "pushing to master in "${dir}
   git push origin master

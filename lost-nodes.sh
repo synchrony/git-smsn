@@ -4,7 +4,7 @@ DELS=/tmp/smsn-deleted-files # to collect the deleted files from the 4 repos
 ADDS=/tmp/smsn-new-files # to collect the added files from the 4 repos
 echo "" > $DELS
 echo "" > $ADDS
-for DIR in private personal public universal; do
+for DIR in private personal public observatorio universal; do
   cd $DIR
   git ls-files -d >> $DELS
   git ls-files -o >> $ADDS

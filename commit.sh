@@ -8,7 +8,7 @@ else
     MSG=$1
 fi
 
-for dir in private personal public universal; do
+for dir in private personal public observatorio universal; do
   cd ${dir};
   echo "committing "${dir}
   git commit -a -m "${MSG}"
