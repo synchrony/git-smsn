@@ -13,4 +13,4 @@ done
 sort $DELS > $DELS.sorted
 sort $ADDS > $ADDS.sorted
 comm -23 $DELS.sorted $ADDS.sorted
-echo "If you see any node addresses above, then something disappeared."
+echo "If you see any node addresses above, then something disappeared. (Otherwise, things might still have moved across repos, but they haven't disappeared entirely.)"
