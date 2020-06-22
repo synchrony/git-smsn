@@ -8,7 +8,7 @@ else
     MSG=$1
 fi
 
-for dir in metadata private personal public observatorio universal; do
+for dir in `cat list-of-repositories.txt`; do
   cd ${dir};
   echo "committing "${dir}
   git commit -a -m "${MSG}"

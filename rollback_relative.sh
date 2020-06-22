@@ -5,7 +5,7 @@ if [ $# -eq 0 ] #no arguments
   else DIFF=$1
 fi
  
-for dir in private personal public universal; do
+for dir in `cat list-of-repositories.txt`; do
   cd ${dir};
   echo "rolling back "${dir}
   git revert HEAD~${DIFF}
