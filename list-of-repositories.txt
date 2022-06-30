@@ -1,7 +1,6 @@
-uber-company
-uber-joshsh
-private
-personal
-public
-universal
-
+repositories/data-public
+repositories/data-universal
+repositories/notes-company
+repositories/notes-personal
+repositories/personal
+repositories/private
