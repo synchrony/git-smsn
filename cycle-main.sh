@@ -9,9 +9,9 @@ then
     && printf "\n\nBeginning commit.sh.\n"\
     && bash commit.sh\
     && printf "\n\nBeginning pull*.sh.\n"\
-    && bash pull-master.sh\
+    && bash pull-main.sh\
     && printf "\n\nBeginning push*.sh.\n"\
-    && bash push-master.sh\
+    && bash push-main.sh\
     && mv ../it ../it.$(date +"%Y_%m_%d_%I_%M_%p")
 
     bash status.sh
